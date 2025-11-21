@@ -1,0 +1,461 @@
+!DOCTYPE html
+html lang=zh-CN class=scroll-smooth
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleINVC 实验室  中国矿业大学title
+    script src=httpscdn.tailwindcss.comscript
+    script src=httpsunpkg.comlucide@latestscript
+    link href=httpsfonts.googleapis.comcss2family=Noto+Sans+SCwght@300;400;500;700&display=swap rel=stylesheet
+    style
+        body {
+            font-family 'Noto Sans SC', sans-serif;
+            background-color #0f172a;  Slate 900 
+            color #e2e8f0;  Slate 200 
+        }
+        
+         Custom Scrollbar 
+        -webkit-scrollbar {
+            width 8px;
+        }
+        -webkit-scrollbar-track {
+            background #0f172a;
+        }
+        -webkit-scrollbar-thumb {
+            background #334155;
+            border-radius 4px;
+        }
+        -webkit-scrollbar-thumbhover {
+            background #475569;
+        }
+
+        .glass-nav {
+            background rgba(15, 23, 42, 0.8);
+            backdrop-filter blur(12px);
+            border-bottom 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip text;
+            -webkit-text-fill-color transparent;
+        }
+
+        .card-hover {
+            transition all 0.3s ease;
+        }
+        .card-hoverhover {
+            transform translateY(-5px);
+            box-shadow 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+            border-color #38bdf8;
+        }
+    style
+head
+body class=antialiased relative overflow-x-hidden
+
+    !-- Background Canvas for Particles --
+    canvas id=bgCanvas class=fixed top-0 left-0 w-full h-full -z-10 opacity-40canvas
+
+    !-- Navigation --
+    nav class=fixed w-full z-50 glass-nav transition-all duration-300 id=navbar
+        div class=max-w-7xl mx-auto px-4 smpx-6 lgpx-8
+            div class=flex justify-between items-center h-16
+                div class=flex-shrink-0 flex items-center gap-2 cursor-pointer onclick=window.scrollTo(0,0)
+                    i data-lucide=cpu class=w-8 h-8 text-sky-400i
+                    span class=font-bold text-xl tracking-wider text-whiteINVC span class=text-sky-400 text-sm font-normal ml-1LABspanspan
+                div
+                
+                !-- Desktop Menu --
+                div class=hidden mdblock
+                    div class=ml-10 flex items-baseline space-x-8
+                        a href=#home class=hovertext-sky-400 transition-colors px-3 py-2 rounded-md text-sm font-medium首页a
+                        a href=#about class=hovertext-sky-400 transition-colors px-3 py-2 rounded-md text-sm font-medium关于我们a
+                        a href=#competitions class=hovertext-sky-400 transition-colors px-3 py-2 rounded-md text-sm font-medium核心竞赛a
+                        a href=#culture class=hovertext-sky-400 transition-colors px-3 py-2 rounded-md text-sm font-medium实验室文化a
+                        a href=#join class=bg-sky-500 hoverbg-sky-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-sky-50030加入我们a
+                    div
+                div
+
+                !-- Mobile Menu Button --
+                div class=mdhidden
+                    button id=mobile-menu-btn class=text-gray-300 hovertext-white p-2
+                        i data-lucide=menu class=w-6 h-6i
+                    button
+                div
+            div
+        div
+
+        !-- Mobile Menu Panel --
+        div id=mobile-menu class=hidden mdhidden bg-slate-900 border-b border-slate-800
+            div class=px-2 pt-2 pb-3 space-y-1 smpx-3
+                a href=#home class=block px-3 py-2 rounded-md text-base font-medium text-white hovertext-sky-400 hoverbg-slate-800首页a
+                a href=#about class=block px-3 py-2 rounded-md text-base font-medium text-gray-300 hovertext-sky-400 hoverbg-slate-800关于我们a
+                a href=#competitions class=block px-3 py-2 rounded-md text-base font-medium text-gray-300 hovertext-sky-400 hoverbg-slate-800核心竞赛a
+                a href=#culture class=block px-3 py-2 rounded-md text-base font-medium text-gray-300 hovertext-sky-400 hoverbg-slate-800实验室文化a
+                a href=#join class=block px-3 py-2 rounded-md text-base font-medium text-sky-400 font-bold加入我们a
+            div
+        div
+    nav
+
+    !-- Hero Section --
+    section id=home class=relative h-screen flex items-center justify-center px-4 pt-16
+        div class=text-center z-10 max-w-4xl mx-auto animate-fade-in-up
+            div class=inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-80050 border border-slate-700 mb-6 backdrop-blur-sm
+                span class=w-2 h-2 rounded-full bg-green-500 animate-pulsespan
+                span class=text-xs font-medium text-slate-300 uppercase tracking-widerCUMT Robotics & AIspan
+            div
+            h1 class=text-5xl mdtext-7xl font-bold tracking-tight mb-6
+                span class=block text-white中国矿业大学span
+                span class=gradient-textINVC 实验室span
+            h1
+            p class=mt-4 text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed
+                Intelligent Navigation, Vision & Control
+            p
+            p class=mt-2 text-lg text-slate-400 max-w-2xl mx-auto mb-10
+                汇聚志同道合的极客，在机器人的世界里探索无限可能。
+            p
+            div class=flex flex-col smflex-row justify-center gap-4
+                a href=#about class=px-8 py-3 rounded-lg bg-white text-slate-900 font-bold hoverbg-slate-200 transition-colors了解更多a
+                a href=#competitions class=px-8 py-3 rounded-lg border border-slate-600 text-white hoverborder-sky-400 hovertext-sky-400 transition-all backdrop-blur-sm
+                    探索竞赛方向
+                a
+            div
+        div
+        
+        !-- Scroll Down Indicator --
+        div class=absolute bottom-10 left-12 transform -translate-x-12 animate-bounce text-slate-500
+            i data-lucide=chevron-down class=w-8 h-8i
+        div
+    section
+
+    !-- About Section --
+    section id=about class=py-24 bg-slate-90050
+        div class=max-w-7xl mx-auto px-4 smpx-6 lgpx-8
+            div class=grid grid-cols-1 mdgrid-cols-2 gap-16 items-center
+                div
+                    h2 class=text-3xl mdtext-4xl font-bold mb-6 text-white关于 INVCh2
+                    div class=h-1 w-20 bg-sky-500 mb-6 rounded-fulldiv
+                    p class=text-slate-300 text-lg leading-relaxed mb-6
+                        INVC 实验室隶属于中国矿业大学，是一个以学生为主体，致力于机器人技术、嵌入式系统、机器视觉与自动控制研究的创新实践基地。
+                    p
+                    p class=text-slate-300 text-lg leading-relaxed mb-6
+                        我们不只是在制造机器，更是在培养未来的工程师。在这里，你可以从零开始设计电路板，编写第一行控制算法，亲手打磨机械结构，直至看到你的作品在赛场上飞驰。
+                    p
+                    ul class=space-y-3 text-slate-400
+                        li class=flex items-center gap-3
+                            i data-lucide=check-circle-2 class=text-green-500 w-5 h-5i
+                            span深厚的技术积淀与传承span
+                        li
+                        li class=flex items-center gap-3
+                            i data-lucide=check-circle-2 class=text-green-500 w-5 h-5i
+                            span跨学科的工程创新实践span
+                        li
+                        li class=flex items-center gap-3
+                            i data-lucide=check-circle-2 class=text-green-500 w-5 h-5i
+                            span开放包容的技术交流氛围span
+                        li
+                    ul
+                div
+                div class=relative
+                    !-- Decorative Elements representing abstract PCBMech --
+                    div class=absolute -top-4 -left-4 w-full h-full border-2 border-sky-50030 rounded-2xldiv
+                    div class=bg-slate-800 rounded-2xl p-8 shadow-2xl relative z-10 border border-slate-700
+                        div class=grid grid-cols-2 gap-6
+                            div class=text-center p-4 bg-slate-900 rounded-xl
+                                span class=block text-4xl font-bold text-sky-400 mb-150+span
+                                span class=text-sm text-slate-400省级以上奖项年span
+                            div
+                            div class=text-center p-4 bg-slate-900 rounded-xl
+                                span class=block text-4xl font-bold text-indigo-400 mb-1100%span
+                                span class=text-sm text-slate-400全情投入span
+                            div
+                            div class=text-center p-4 bg-slate-900 rounded-xl
+                                span class=block text-4xl font-bold text-pink-400 mb-1247span
+                                span class=text-sm text-slate-400实验室开放span
+                            div
+                            div class=text-center p-4 bg-slate-900 rounded-xl
+                                span class=block text-4xl font-bold text-emerald-400 mb-1∞span
+                                span class=text-sm text-slate-400创新的可能性span
+                            div
+                        div
+                    div
+                div
+            div
+        div
+    section
+
+    !-- Competitions Section --
+    section id=competitions class=py-24 relative
+        div class=max-w-7xl mx-auto px-4 smpx-6 lgpx-8
+            div class=text-center mb-16
+                h2 class=text-3xl mdtext-4xl font-bold text-white mb-4征战赛场h2
+                p class=text-slate-400 text-lg max-w-2xl mx-auto我们以赛促学，在四大核心赛事中磨砺技术，屡获佳绩。p
+            div
+
+            div class=grid grid-cols-1 mdgrid-cols-2 lggrid-cols-4 gap-6
+                
+                !-- Card 1 Electronic Design --
+                div class=bg-slate-80050 backdrop-blur-sm p-6 rounded-xl border border-slate-700 card-hover group
+                    div class=w-14 h-14 rounded-lg bg-blue-50010 flex items-center justify-center mb-6 group-hoverbg-blue-50020 transition-colors
+                        i data-lucide=cpu class=w-8 h-8 text-blue-400i
+                    div
+                    h3 class=text-xl font-bold text-white mb-3全国大学生电子设计竞赛h3
+                    p class=text-slate-400 text-sm leading-relaxed
+                        四天三夜的极限挑战。涉及电源、控制、仪器仪表、信号处理等方向。这是对模电、数电及单片机技术的终极考验。
+                    p
+                    div class=mt-4 flex flex-wrap gap-2
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded嵌入式span
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 roundedFPGAspan
+                    div
+                div
+
+                !-- Card 2 Smart Car --
+                div class=bg-slate-80050 backdrop-blur-sm p-6 rounded-xl border border-slate-700 card-hover group
+                    div class=w-14 h-14 rounded-lg bg-sky-50010 flex items-center justify-center mb-6 group-hoverbg-sky-50020 transition-colors
+                        i data-lucide=car class=w-8 h-8 text-sky-400i
+                    div
+                    h3 class=text-xl font-bold text-white mb-3全国大学生智能车竞赛h3
+                    p class=text-slate-400 text-sm leading-relaxed
+                        速度与控制的艺术。摄像头、电磁、平衡信标，在复杂的赛道上编写最优控制算法，追求极致的速度。
+                    p
+                    div class=mt-4 flex flex-wrap gap-2
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 roundedPID控制span
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded机器视觉span
+                    div
+                div
+
+                !-- Card 3 Mech Innovation --
+                div class=bg-slate-80050 backdrop-blur-sm p-6 rounded-xl border border-slate-700 card-hover group
+                    div class=w-14 h-14 rounded-lg bg-orange-50010 flex items-center justify-center mb-6 group-hoverbg-orange-50020 transition-colors
+                        i data-lucide=settings class=w-8 h-8 text-orange-400i
+                    div
+                    h3 class=text-xl font-bold text-white mb-3机械创新设计大赛h3
+                    p class=text-slate-400 text-sm leading-relaxed
+                        从灵感到实物。巧妙的机械结构设计，结合电子控制，解决实际生活中的问题。这里是机械迷的天堂。
+                    p
+                    div class=mt-4 flex flex-wrap gap-2
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded3D建模span
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded结构设计span
+                    div
+                div
+
+                !-- Card 4 Eng Training --
+                div class=bg-slate-80050 backdrop-blur-sm p-6 rounded-xl border border-slate-700 card-hover group
+                    div class=w-14 h-14 rounded-lg bg-emerald-50010 flex items-center justify-center mb-6 group-hoverbg-emerald-50020 transition-colors
+                        i data-lucide=hammer class=w-8 h-8 text-emerald-400i
+                    div
+                    h3 class=text-xl font-bold text-white mb-3工程创新训练大赛h3
+                    p class=text-slate-400 text-sm leading-relaxed
+                        综合能力的试金石。智能物流、垃圾分类、水下机器人，考验团队的软硬件协同与系统集成能力。
+                    p
+                    div class=mt-4 flex flex-wrap gap-2
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded系统集成span
+                        span class=text-xs bg-slate-700 text-slate-300 px-2 py-1 roundedROSspan
+                    div
+                div
+
+            div
+        div
+    section
+
+    !-- CultureDiscussion Section --
+    section id=culture class=py-24 bg-slate-900
+        div class=max-w-7xl mx-auto px-4 smpx-6 lgpx-8
+            div class=bg-gradient-to-r from-indigo-900 to-slate-900 rounded-3xl p-8 mdp-16 relative overflow-hidden border border-slate-700
+                !-- Background decoration --
+                div class=absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-50020 rounded-full blur-3xldiv
+                div class=absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-sky-50020 rounded-full blur-3xldiv
+
+                div class=relative z-10 flex flex-col mdflex-row items-center gap-12
+                    div class=mdw-12
+                        h2 class=text-3xl mdtext-4xl font-bold text-white mb-6这里有你需要的一切h2
+                        p class=text-slate-300 text-lg mb-6
+                            INVC 最宝贵的资产不是示波器，也不是3D打印机，而是——span class=text-sky-400 font-bold人span。
+                        p
+                        div class=space-y-4
+                            div class=flex gap-4
+                                div class=w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-slate-600 flex-shrink-0
+                                    i data-lucide=users class=text-sky-400i
+                                div
+                                div
+                                    h4 class=text-white font-bold text-lg志同道合的伙伴h4
+                                    p class=text-slate-400 text-sm你会遇到通宵调试代码的队友，也会遇到在白板上激辩方案的挚友。p
+                                div
+                            div
+                            div class=flex gap-4
+                                div class=w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-slate-600 flex-shrink-0
+                                    i data-lucide=message-square class=text-sky-400i
+                                div
+                                div
+                                    h4 class=text-white font-bold text-lg毫无保留的技术讨论h4
+                                    p class=text-slate-400 text-sm没有年级之分，只有对技术的追求。学长学姐的经验传承是我们强大的根基。p
+                                div
+                            div
+                        div
+                    div
+                    div class=mdw-12 w-full
+                        !-- Mockup of a code editor or schematic --
+                        div class=bg-slate-950 rounded-lg border border-slate-800 p-4 font-mono text-sm text-slate-300 shadow-2xl transform rotate-1 hoverrotate-0 transition-transform duration-500
+                            div class=flex gap-2 mb-4 border-b border-slate-800 pb-2
+                                div class=w-3 h-3 rounded-full bg-red-500div
+                                div class=w-3 h-3 rounded-full bg-yellow-500div
+                                div class=w-3 h-3 rounded-full bg-green-500div
+                            div
+                            div class=space-y-1
+                                pspan class=text-purple-400voidspan span class=text-blue-400INVC_Labinitspan() {p
+                                p class=pl-4passion = span class=text-orange-400100%span;p
+                                p class=pl-4while(span class=text-green-400truespan) {p
+                                p class=pl-8learn();p
+                                p class=pl-8build();p
+                                p class=pl-8debug(); span class=text-slate-500 The most important partspanp
+                                p class=pl-8span class=text-sky-400shareWithFriendsspan();p
+                                p class=pl-4}p
+                                p}p
+                            div
+                        div
+                    div
+                div
+            div
+        div
+    section
+
+    !-- Join Us  Footer --
+    footer id=join class=bg-slate-950 pt-16 pb-8 border-t border-slate-800
+        div class=max-w-7xl mx-auto px-4 smpx-6 lgpx-8 text-center
+            h2 class=text-3xl font-bold text-white mb-6准备好加入我们了吗？h2
+            p class=text-slate-400 mb-8 max-w-2xl mx-auto无论你是硬件大神，还是算法萌新，只要有一颗热爱创造的心，INVC 永远为你敞开大门。p
+            
+            button onclick=alert('招新通常在每年秋季学期开始。请关注校园公告或直接前往实验室咨询！') class=px-8 py-4 bg-sky-600 hoverbg-sky-500 text-white rounded-full font-bold text-lg shadow-lg shadow-sky-60030 transition-all transform hover-translate-y-1
+                联系我们  申请加入
+            button
+
+            div class=mt-16 pt-8 border-t border-slate-900 flex flex-col mdflex-row justify-between items-center text-slate-500 text-sm
+                div class=mb-4 mdmb-0
+                    p&copy; 2023 INVC Lab, China University of Mining and Technology.p
+                    p中国矿业大学 智能视觉与控制实验室p
+                div
+                div class=flex gap-6
+                    a href=# class=hovertext-white transition-colorsi data-lucide=github class=w-5 h-5ia
+                    a href=# class=hovertext-white transition-colorsi data-lucide=mail class=w-5 h-5ia
+                    a href=# class=hovertext-white transition-colorsi data-lucide=map-pin class=w-5 h-5ia
+                div
+            div
+        div
+    footer
+
+    !-- Particle Animation Script --
+    script
+         Initialize Lucide Icons
+        lucide.createIcons();
+
+         Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () = {
+            menu.classList.toggle('hidden');
+        });
+
+         Canvas Animation
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        
+         Configuration
+        const particleCount = 60;
+        const connectionDistance = 150;
+        const moveSpeed = 0.5;
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random()  width;
+                this.y = Math.random()  height;
+                this.vx = (Math.random() - 0.5)  moveSpeed;
+                this.vy = (Math.random() - 0.5)  moveSpeed;
+                this.size = Math.random()  2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                 Bounce off edges
+                if (this.x  0  this.x  width) this.vx = -1;
+                if (this.y  0  this.y  height) this.vy = -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI  2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';  Sky-400 with opacity
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i  particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i  particles.length; i++) {
+                let p = particles[i];
+                p.update();
+                p.draw();
+
+                 Draw connections
+                for (let j = i + 1; j  particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let distance = Math.sqrt(dx  dx + dy  dy);
+
+                    if (distance  connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance  connectionDistance  0.8})`;  Fade out
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () = {
+            resize();
+            initParticles();
+        });
+
+        resize();
+        initParticles();
+        animate();
+
+         Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () = {
+            if (window.scrollY  20) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+    script
+body
+html
